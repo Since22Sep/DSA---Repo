@@ -105,7 +105,7 @@ void insertAtPosition(Node* & tail, Node* &head, int position, int d) {
     nodeToInsert -> prev = temp;
 }
 
-void deleteNode(int position , Node* &head){
+void deleteNode(int position , Node* &head , Node* &tail){
     // deleting first or start node
     if(position == 1){
         Node* temp = head;
@@ -125,9 +125,18 @@ void deleteNode(int position , Node* &head){
         curr = curr->next;
         cnt++;
        }
+       if(curr->next == NULL){
         curr->prev = NULL;
         prev->next = curr->next;
         curr->next = NULL;
+        tail = curr->prev;
+       }
+       else{
+        curr->prev = NULL;
+        curr->next->prev = prev;
+        curr->next = NULL;
+       }
+        
         delete curr;
 
 

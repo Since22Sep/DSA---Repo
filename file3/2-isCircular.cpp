@@ -37,5 +37,13 @@ int main(){
     SC -O(1)
 
 */
+
+/*
+Approach 2:-
+We created a map , so that we can keep the track which is visited and which is not. If we have reached a node which is marked true, then it is circular Linked List. if we reached NULL then it is not a circular linked list.
+Space will be increased in this case.
+T.C = O(n)
+S.C = O(n)
+*/
     return 0;
 }

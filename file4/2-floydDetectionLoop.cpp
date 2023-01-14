@@ -31,6 +31,19 @@ Node* floydDetectionLoop(Node* head){
     }
     return NULL;
 }
+
+Node* getStartingNode(Node* head){
+    if(head == NULL){
+        return NULL;
+    }
+    Node* intersection = floydDetectionLoop(head); 
+    Node* slow = head;
+    while(slow != intersection){
+        slow = slow->next;
+        intersection = intersection->next;
+    }
+    return slow;
+}
 int main(){
     /*
     1- FOR DETECTION OF LOOP :- in starting keep slow and fast here at head, slow will take one step and fast will take 2.

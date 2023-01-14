@@ -29,6 +29,18 @@ Node* reverseLlinkedList(Node* head){
     }return prev;
 }
 
+// Recursive Solution
+void reverse(Node* &head, Node* &curr, Node* &prev){
+    // base case
+    if(curr ==NULL){
+        head = prev;
+        return;
+    }
+    Node* forward = curr->next;
+    reverse(head , forward , curr);
+    curr->next = prev;
+}
+
 int main(){
     // Reverse a Linked List
     return 0;

@@ -44,6 +44,21 @@ Node* getStartingNode(Node* head){
     }
     return slow;
 }
+
+void removeLoop(Node* head){
+    if(head == NULL){
+        return;
+    }
+    Node* startOfLoop = getStartingNode(head);
+    Node* temp = startOfLoop;
+    // if(startOfLoop == NULL){
+    //     return NULL;
+    // }
+    while(temp->next != startOfLoop){
+        temp = temp->next;
+    }
+    temp->next =NULL;
+}
 int main(){
     /*
     1- FOR DETECTION OF LOOP :- in starting keep slow and fast here at head, slow will take one step and fast will take 2.
